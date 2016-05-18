@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TccModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CID10">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codcid" Type="varchar" MaxLength="30" />
+    <Property Name="descricao" Type="varchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="FormCID10">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idFormulario" Type="int" Nullable="false" />
+    <Property Name="idCID10" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Formulario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <Association Name="FK__FormCID10__idCID__0CBAE877">
+    <End Role="CID10" Type="Self.CID10" Multiplicity="1" />
+    <End Role="FormCID10" Type="Self.FormCID10" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CID10">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="FormCID10">
+        <PropertyRef Name="idCID10" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FormCID10__idFor__0BC6C43E">
+    <End Role="Formulario" Type="Self.Formulario" Multiplicity="1" />
+    <End Role="FormCID10" Type="Self.FormCID10" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Formulario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="FormCID10">
+        <PropertyRef Name="idFormulario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TccModelStoreContainer">
+    <EntitySet Name="CID10" EntityType="Self.CID10" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FormCID10" EntityType="Self.FormCID10" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Formulario" EntityType="Self.Formulario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__FormCID10__idCID__0CBAE877" Association="Self.FK__FormCID10__idCID__0CBAE877">
+      <End Role="CID10" EntitySet="CID10" />
+      <End Role="FormCID10" EntitySet="FormCID10" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FormCID10__idFor__0BC6C43E" Association="Self.FK__FormCID10__idFor__0BC6C43E">
+      <End Role="Formulario" EntitySet="Formulario" />
+      <End Role="FormCID10" EntitySet="FormCID10" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

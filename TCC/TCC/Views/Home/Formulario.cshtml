@@ -1,0 +1,134 @@
+﻿@model TCC.Models.Pessoa
+@{
+    ViewBag.Title = "Formulario";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
+<h2 style="color:#428bca;"><span class="glyphicon glyphicon-list-alt"></span>  Formulário de Acompanhamento Domiciliar</h2>
+<div class="panel panel-info ">
+    <div class="panel-heading">
+        <h3 class="panel-title"><span class="glyphicon glyphicon-user"></span> Informações do Paciente</h3>
+    </div>
+    <div class="panel-body">
+
+        <div class="panel">
+            <div class="panel-body" style="padding:20px; margin: 20px 0;  border: 1px solid #eee; border-left-width: 5px; border-radius: 3px; border-left-color:#428bca; ">
+                <h4 style="color:#428bca;">Dados Pessoais</h4>
+                <p><strong>Paciente:</strong> Thays Boschi Oliveira</p>
+                <p><strong>Telefone:</strong> (011) 97652-0876</p>
+                <p><strong>Endereço:</strong> Rua Brócolis, 10 - São Clemente</p>
+                <p><strong>Cuidador:</strong> Lucas Mitsuo &nbsp;&nbsp;&nbsp;&nbsp; <strong>Parentesco:</strong> Pai</p>
+            </div>
+        </div>
+
+        @using (Html.BeginForm("SalvarResposta", "Home", FormMethod.Post))
+        {
+            <!--========================================== CID 10 ================================================-->
+
+            <div class="panel" style="padding:20px; margin: 20px 0;  border: 1px solid #eee; border-left-width: 5px; border-radius: 3px; border-left-color:#428bca; ">
+
+                <div class="col-md-12">
+                    <h4 style="color:#428bca;">CID 10</h4>
+                    <small>Digite o cid ou sua descrição no campo abaixo e clique no botão para adicionar na lista</small>
+                </div>
+
+                <div class="col-md-11">
+                    <input id="txt1" type="text" style="min-width:100%;" placeholder="Entre com o CID ou a descrição" class="form-control" />
+                </div>
+                <div class="col-md-1">
+                    <button id="btnAdd" type="button" ><span class="glyphicon glyphicon-plus"></span></button>
+                </div>
+                <br />
+                <br />
+                <div class="col-md-12" id="div2">
+                    <textarea id="txt2" class="form-control" name="campo2" style="min-width:100%" rows="8" placeholder="Lista de doenças"></textarea>
+                </div>
+
+            </div>
+
+            <!--========================================== MATERIAIS ================================================-->
+
+            <div class="panel" style="padding:20px; margin: 20px 0;  border: 1px solid #eee; border-left-width: 5px; border-radius: 3px; border-left-color:#428bca; ">
+
+                <div class="col-md-12">
+                    <h4 style="color:#428bca;"> Materiais</h4>
+                    <small>Escolha os materiais que foram utilizados durante a visita</small>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="checkbox">
+                            <input type="checkbox" class="checkbox" /> Cama
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="checkbox">
+                            <input type="checkbox" class="checkbox" /> Cadeira de rodas
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="checkbox">
+                            <input type="checkbox" class="checkbox" /> Cadeira de banho
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="checkbox">
+                            <input type="checkbox" class="checkbox" /> Aspirador
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="checkbox">
+                            <input type="checkbox" class="checkbox" /> Inalador
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="checkbox">
+                            <input type="checkbox" class="checkbox" /> Colchão
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="checkbox">
+                            <input type="checkbox" class="checkbox" /> Conc_O2
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="checkbox">
+                            <input type="checkbox" class="checkbox" /> Torp_Transp
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="checkbox">
+                            <input type="checkbox" class="checkbox" /> Oxímetro
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="checkbox">
+                            <input type="checkbox" class="checkbox" /> CPAP
+                        </div>
+                    </div>
+                </div>
+
+                      
+
+            </div>
+        }
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#btnAdd').click(function () {
+
+            var txt1 = $('#txt1').val();
+
+            $('#txt2').append(txt1);
+        });
+    });
+</script>
+

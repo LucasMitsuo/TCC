@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TccModelStoreContainer" CdmEntityContainer="TccModelEntities">
+    <EntitySetMapping Name="CID10">
+      <EntityTypeMapping TypeName="TccModel.CID10">
+        <MappingFragment StoreEntitySet="CID10">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codcid" ColumnName="codcid" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FormCID10">
+      <EntityTypeMapping TypeName="TccModel.FormCID10">
+        <MappingFragment StoreEntitySet="FormCID10">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idFormulario" ColumnName="idFormulario" />
+          <ScalarProperty Name="idCID10" ColumnName="idCID10" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Formulario">
+      <EntityTypeMapping TypeName="TccModel.Formulario">
+        <MappingFragment StoreEntitySet="Formulario">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
