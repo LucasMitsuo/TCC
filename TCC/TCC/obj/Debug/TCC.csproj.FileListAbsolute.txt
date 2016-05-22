@@ -116,6 +116,6 @@ C:\Projetos\TCC\TCC\TCC\bin\System.Web.WebPages.Deployment.xml
 C:\Projetos\TCC\TCC\TCC\bin\System.Web.WebPages.Razor.xml
 C:\Projetos\TCC\TCC\TCC\bin\Antlr3.Runtime.pdb
 C:\Projetos\TCC\TCC\TCC\bin\Newtonsoft.Json.xml
-C:\Projetos\TCC\TCC\TCC\obj\Debug\TCC.csprojResolveAssemblyReference.cache
 C:\Projetos\TCC\TCC\TCC\obj\Debug\TCC.dll
 C:\Projetos\TCC\TCC\TCC\obj\Debug\TCC.pdb
+C:\Projetos\TCC\TCC\TCC\obj\Debug\TCC.csprojResolveAssemblyReference.cache

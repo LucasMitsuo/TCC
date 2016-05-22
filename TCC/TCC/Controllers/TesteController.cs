@@ -23,5 +23,18 @@ namespace TCC.Controllers
 
             return Request.CreateResponse(HttpStatusCode.OK, colCID10);
         }
+
+        [HttpGet]
+        [Route("api/cid10")]
+        public HttpResponseMessage ObterCID10()
+        {
+            TccModelEntities db = new TccModelEntities();
+
+            var result = db.CID10.ToList();
+
+            var colCID10 = from c in result select new CID10Dto(c).descricao;
+
+            return Request.CreateResponse(HttpStatusCode.OK, colCID10.ToArray());
+        }
     }
 }

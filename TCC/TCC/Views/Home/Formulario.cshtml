@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Formulario";
 }
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <h2 style="color:#428bca;"><span class="glyphicon glyphicon-list-alt"></span>  Formulário de Acompanhamento Domiciliar</h2>
 <div class="panel panel-info ">
     <div class="panel-heading">
@@ -31,16 +31,13 @@
                     <small>Digite o cid ou sua descrição no campo abaixo e clique no botão para adicionar na lista</small>
                 </div>
 
-                <div class="col-md-11">
-                    <input id="txt1" type="text" style="min-width:100%;" placeholder="Entre com o CID ou a descrição" class="form-control" />
-                </div>
-                <div class="col-md-1">
-                    <button id="btnAdd" type="button" ><span class="glyphicon glyphicon-plus"></span></button>
+                <div id="rp-cids" class="col-md-12" data-target-input="target-input-cids" data-url="http://localhost:9241/api/cid10/{0}">
+                    <input id="target-insert" type="text" style="min-width:100%;" placeholder="Entre com o CID ou a descrição" class="form-control" />
                 </div>
                 <br />
                 <br />
-                <div class="col-md-12" id="div2">
-                    <textarea id="txt2" class="form-control" name="campo2" style="min-width:100%" rows="8" placeholder="Lista de doenças"></textarea>
+                <div class="col-md-12">
+                    <input  id="target-input-cids" type="text"/>
                 </div>
 
             </div>
@@ -113,22 +110,166 @@
                         </div>
                     </div>
                 </div>
-
-                      
-
             </div>
         }
     </div>
 </div>
 
 <script type="text/javascript">
-    $(function () {
-        $('#btnAdd').click(function () {
+    $(document).ready(function () {
+        cidEngine();
 
-            var txt1 = $('#txt1').val();
+        //TRATAR AQUI CASO O LOCALSTORAGE JA ESTEJA PREENCHIDO
+        GetCids();
 
-            $('#txt2').append(txt1);
-        });
+        //Recupera os dados da localStorage de nome lstCID
+        var cidRecovery = localStorage.getItem("lstCID");
+        //Tranforma a string obtida do localStorage e converte para JSON
+        var lst = JSON.parse(cidRecovery);
+
+        //Função que busca todos os CIDS e armazena no localStorage
+        function GetCids() {
+            $.ajax({
+                url: "http://localhost:9241/api/cid10",
+                dataType: "json",
+                cache: true,
+                success: function (data) {
+                    //Armazena no localStorage todos os CIDS
+                    localStorage.setItem("lstCID", JSON.stringify(data));
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    return "ERRO";
+                }
+            });
+        }
+
+        function checkCID(cid) {
+            var termo = $("#target-insert").val();
+            return cid.toLowerCase().indexOf(termo.toLowerCase()) >= 0;
+        }
+
+        function cidEngine() {
+            var elem = $('#rp-cids');
+
+            if (elem.length > 0) {
+
+                var targetInput = $("#" + elem.attr("data-target-input"));
+                var route = elem.attr("data-url");
+                if (targetInput.length > 0) {
+
+                    var targetInsert = $("#rp-cids input");
+
+                    var regex = /[.,\/#!$%\^&\*;:{}=\_`~()+º"!¨§]/ig;
+
+                    //Controle de evento do targetInsert
+                    targetInsert.on({
+                        //Quando perde o foco
+                        focusout: function () {
+                            var txt = this.value.replace(regex,''); //Pega o valor digitado no targetInsert e remove os caracteres especiais
+
+                            if(txt != ""){
+                                //Adiciona o texto com css aplicado
+                                elem.append("<p class='tag-item'>" + txt + "</p>");
+
+                                //Adiciona o texto digitado no targetInput
+                                var listTags = targetInput.val();
+
+                                if (listTags == "")
+                                {
+                                    targetInput.val(txt);
+                                }
+                                else
+                                {
+                                    targetInput.val(listTags + ";" + txt);
+                                }
+                            }
+
+                        },
+                        //Quando solta uma tecla
+                        keyup: function (ev) {
+                            //termo utilizado para o tratamento de resultado não encontrado
+                            var termo = $("#target-insert").val();
+
+                            if (/(13)/.test(ev.which)) {
+                                return false;
+                            }
+
+                            if (/(188|191)/.test(ev.which)) {
+                                $(this).focusout();
+                                this.focus();
+                            }
+                            else {
+                                var txt = this.value.replace(regex, '');
+                                var _url = route.replace("{0}", txt);
+                                var inpText = this;
+
+                                $(this).autocomplete({
+                                    messages: {                          
+                                        noResults: function () {
+                                            var spanError = elem.find("span.no-search");
+
+                                            if (spanError.length == 0)
+                                            {
+                                                $("<span/>", { class: "no-search", text: "Não foram encontrados resultados para " + termo + "'", insertAfter: targetInsert });
+                                            }
+                                            else
+                                            {
+                                                spanError.remove();
+                                                $("<span/>", { class: "no-search", text: "Não foram encontrados resultados para '" + termo +"'", insertAfter: targetInsert });
+                                            }
+                                        },
+                                        results: function (count) {
+                                            elem.find("span.no-search").remove();
+                                        }
+                                       
+                                    },
+                                    source: function (request, response) {
+                                        var result = lst.filter(checkCID); //Obtem os a lista de CIDs já filtrados com o termo
+                                        response($.map(result.slice(0, 8), function (a) {
+                                            return {
+                                                word: a
+                                            };
+                                        }));
+                                    },
+                                    select: function (event, ui) {
+                                        elem.append("<p class='tag-item'>" + ui.item.word + "</p>");
+
+                                        //Se a lista estiver vazia, coloca somente o valor selecionado
+                                        //Caso contrário, adiciona um ';' e o valor selecionado
+                                        var listTags = targetInput.val();
+
+                                        if (listTags == "") {
+                                            targetInput.val(ui.item.word);
+                                        }
+                                        else {
+                                            targetInput.val(listTags + ";" + ui.item.word);
+                                        }
+                                    },
+                                    open: function () {
+                                        $(this).removeClass("ui-corner-all").addClass("ui-corner-top");
+                                    },
+                                    close: function () {
+                                        $(this).removeClass("ui-corner-top").addClass("ui-corner-all");
+                                    }
+                                }).data("ui-autocomplete")._renderItem = function (ul, item) {
+                                    return $("<li class='extention' role='presentation'>")
+                                    .append("<a role='menuitem' tabindex='-1'><i class='glyphicon glyphicon-tags'></i>&nbsp;&nbsp;" + item.word + "</a>")
+                                    .appendTo(ul);
+                                };
+                            }
+                        }
+                    });
+
+                    elem.on('click', 'p', function () {
+                        $(this).remove();
+
+                        elem.find("p.tag-item").each(function () {
+                            targetInput.val(targetInput.val() + $(this).html);
+                        });
+                    });
+                }
+            }
+        }
     });
 </script>
 
