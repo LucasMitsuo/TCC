@@ -31,6 +31,11 @@ namespace TCC.Controllers
             return View();
         }
 
+        public ActionResult RegistrarVisita()
+        {
+            return PartialView();
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
