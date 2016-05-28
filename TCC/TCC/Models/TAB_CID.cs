@@ -12,17 +12,17 @@ namespace TCC.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class CID10
+    public partial class TAB_CID
     {
-        public CID10()
+        public TAB_CID()
         {
-            this.FormCID10 = new HashSet<FormCID10>();
+            this.TAB_DIAGNOSTICO = new HashSet<TAB_DIAGNOSTICO>();
         }
     
-        public int id { get; set; }
-        public string codcid { get; set; }
-        public string descricao { get; set; }
+        public int cod_cid { get; set; }
+        public string cod_cid10 { get; set; }
+        public string des_cid { get; set; }
     
-        public virtual ICollection<FormCID10> FormCID10 { get; set; }
+        public virtual ICollection<TAB_DIAGNOSTICO> TAB_DIAGNOSTICO { get; set; }
     }
 }

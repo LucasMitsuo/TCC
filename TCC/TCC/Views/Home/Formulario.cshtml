@@ -2,19 +2,22 @@
 @{
     ViewBag.Title = "Formulario";
 }
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+@Scripts.Render("~/bundles/jquery")
+
 <h2 style="color:#428bca;"><span class="glyphicon glyphicon-list-alt"></span>  Formulário de Acompanhamento Domiciliar</h2>
 <div class="panel panel-info ">
     <div class="panel-heading">
         <h3 class="panel-title"><span class="glyphicon glyphicon-user"></span> Informações do Paciente</h3>
     </div>
     <div class="panel-body">
-
             <!--========================================== DADOS PESSOAIS ================================================-->
 
+             <p class="col-md-12"><h2>Prontuário: 233322</h2></p>
             <div class="panel-body" style="padding:20px; margin: 20px 0;  border: 1px solid #eee; border-left-width: 5px; border-radius: 3px; border-left-color:#5bc0de; ">
                 <h4 style="color:#428bca;">Dados Pessoais</h4>
                 <p class="col-md-12"><strong>Paciente:</strong> Thays Boschi Oliveira</p>
+                <p class="col-md-12"><strong>Idade:</strong>19 anos</p>
                 <p class="col-md-12"><strong>Telefone:</strong> (011) 97652-0876</p>
                 <p class="col-md-12"><strong>Endereço:</strong> Rua Brócolis, 10 - São Clemente</p">
                 <p class="col-md-12"><strong>Cuidador:</strong> Lucas Mitsuo &nbsp;&nbsp;&nbsp;&nbsp; <strong>Parentesco:</strong> Pai</p>
@@ -199,7 +202,6 @@
     <div class="panel-heading">
         <h3 class="panel-title"><span class="glyphicon glyphicon-calendar"></span> Registros das visitas</h3>
     </div>
- 
 
     <table class="table table-condensed">
         <tr>
@@ -236,7 +238,6 @@
     <!-- Modal -->
     <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog" >
-
             <!-- Modal content-->
             <div class="modal-content" style="border: 1px solid #eee; border-left-width: 5px; border-radius: 3px; border-left-color:#5bc0de; ">
                 <div class="modal-header">
@@ -254,7 +255,7 @@
                         <div class="row">
                             <p>
                                 <strong>Periodicidade:</strong> &nbsp;
-                                <select>
+                                <select style="border-radius:4px">
                                     <option></option>
                                     <option>Semanal</option>
                                     <option>Mensal</option>
@@ -266,20 +267,22 @@
                             </p>
                         </div>
                         <div class="row">
-                            <strong>Procedimentos</strong>
-                            <textarea class="form-control" style="min-width:100%" rows="8"></textarea>
+                            <strong>Procedimento:</strong>
+                            <input type="text" class="form-control" style="min-width:100%" placeholder="Digite os procedimentos realizados aqui"/>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <strong>Observação:</strong>
+                            <textarea class="form-control" style="min-width:100%" rows="4"></textarea>
                         </div>
                     </div>
 
-
-
-
                     </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-ok"></span> Salvar</button>
                 </div>
             </div>
-
         </div>
     </div>
     @*<button type="button" class="btn btn-info" style="float:right;">Registrar Visita</button>*@
@@ -325,7 +328,7 @@
         <tr class="hidden" id="saida-obito"> 
             <th class="col-md-2">Informe o local:</th>
             <td>
-                <div class="radio"><input type="radio" name="optionsRadios2" value="option1">Domicílio</div>
+                <div class="radio"><input type="radio" name="optionsRadios2" value="Domicílio">Domicílio</div>
                 <div class="radio"><input type="radio" name="optionsRadios2" value="option1">PS_HU</div>
                 <div class="radio"><input type="radio" name="optionsRadios2" value="option1">Int_HU</div>
                 <div class="radio"><input type="radio" name="optionsRadios2" value="option1">H_Clínicas</div>
@@ -337,8 +340,6 @@
         </tr>
     </table>
 </div>
-@Html.Partial("Modal");
-
 
 
     <script type="text/javascript">

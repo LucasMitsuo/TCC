@@ -15,9 +15,9 @@ namespace TCC.Controllers
         [Route("api/cid10/{termo}")]
         public HttpResponseMessage ObterCID10(string termo)
         {
-            TccModelEntities db = new TccModelEntities();
+            SocialCareEntities db = new SocialCareEntities();
 
-            var result = db.CID10.Where(model => model.descricao.Contains(termo) || model.codcid.Contains(termo)).ToList();
+            var result = db.TAB_CID.Where(model => model.des_cid.Contains(termo) || model.cod_cid10.Contains(termo)).ToList();
 
             var colCID10 = from c in result select new CID10Dto(c).descricao;
 
@@ -28,9 +28,9 @@ namespace TCC.Controllers
         [Route("api/cid10")]
         public HttpResponseMessage ObterCID10()
         {
-            TccModelEntities db = new TccModelEntities();
+            SocialCareEntities db = new SocialCareEntities();
 
-            var result = db.CID10.ToList();
+            var result = db.TAB_CID.ToList();
 
             var colCID10 = from c in result select new CID10Dto(c).descricao;
 

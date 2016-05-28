@@ -12,13 +12,17 @@ namespace TCC.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class FormCID10
+    public partial class TAB__MATERIAL
     {
-        public int id { get; set; }
-        public int idFormulario { get; set; }
-        public int idCID10 { get; set; }
+        public TAB__MATERIAL()
+        {
+            this.TAB_FORM_MAT = new HashSet<TAB_FORM_MAT>();
+        }
     
-        public virtual CID10 CID10 { get; set; }
-        public virtual Formulario Formulario { get; set; }
+        public int cod_material { get; set; }
+        public string nom_material { get; set; }
+        public string des_material { get; set; }
+    
+        public virtual ICollection<TAB_FORM_MAT> TAB_FORM_MAT { get; set; }
     }
 }

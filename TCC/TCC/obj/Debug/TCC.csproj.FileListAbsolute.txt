@@ -118,4 +118,3 @@ C:\Projetos\TCC\TCC\TCC\bin\Antlr3.Runtime.pdb
 C:\Projetos\TCC\TCC\TCC\bin\Newtonsoft.Json.xml
 C:\Projetos\TCC\TCC\TCC\obj\Debug\TCC.dll
 C:\Projetos\TCC\TCC\TCC\obj\Debug\TCC.pdb
-C:\Projetos\TCC\TCC\TCC\obj\Debug\TCC.csprojResolveAssemblyReference.cache

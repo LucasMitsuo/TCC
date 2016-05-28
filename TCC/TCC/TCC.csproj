@@ -174,30 +174,63 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\CID10.cs">
-      <DependentUpon>TccModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\FormCID10.cs">
-      <DependentUpon>TccModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Formulario.cs">
-      <DependentUpon>TccModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Pessoa.cs" />
-    <Compile Include="Models\TccModel.Context.cs">
+    <Compile Include="Models\SocialCareModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TccModel.Context.tt</DependentUpon>
+      <DependentUpon>SocialCareModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\TccModel.cs">
+    <Compile Include="Models\SocialCareModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TccModel.tt</DependentUpon>
+      <DependentUpon>SocialCareModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\TccModel.Designer.cs">
+    <Compile Include="Models\SocialCareModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TccModel.edmx</DependentUpon>
+      <DependentUpon>SocialCareModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TAB_CID.cs">
+      <DependentUpon>SocialCareModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TAB_DIAGNOSTICO.cs">
+      <DependentUpon>SocialCareModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TAB_FORM.cs">
+      <DependentUpon>SocialCareModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TAB_FORM_MAT.cs">
+      <DependentUpon>SocialCareModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TAB_FORM_PROC_ENF.cs">
+      <DependentUpon>SocialCareModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TAB_PACIENTE.cs">
+      <DependentUpon>SocialCareModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TAB_PROCEDIMENTO.cs">
+      <DependentUpon>SocialCareModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TAB_PROC_ENF.cs">
+      <DependentUpon>SocialCareModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TAB_PROFISSIONAL.cs">
+      <DependentUpon>SocialCareModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TAB_SAIDA.cs">
+      <DependentUpon>SocialCareModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TAB_UP.cs">
+      <DependentUpon>SocialCareModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TAB_VISITA.cs">
+      <DependentUpon>SocialCareModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TAB_VISITA_PROC.cs">
+      <DependentUpon>SocialCareModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TAB__MATERIAL.cs">
+      <DependentUpon>SocialCareModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -208,15 +241,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\TccModel.Context.tt">
+    <Content Include="Models\SocialCareModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TccModel.edmx</DependentUpon>
-      <LastGenOutput>TccModel.Context.cs</LastGenOutput>
+      <DependentUpon>SocialCareModel.edmx</DependentUpon>
+      <LastGenOutput>SocialCareModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\TccModel.tt">
+    <Content Include="Models\SocialCareModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TccModel.edmx</DependentUpon>
-      <LastGenOutput>TccModel.cs</LastGenOutput>
+      <DependentUpon>SocialCareModel.edmx</DependentUpon>
+      <LastGenOutput>SocialCareModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
@@ -225,17 +258,22 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="Models\TccModel.edmx">
+    <EntityDeploy Include="Models\SocialCareModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>TccModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>SocialCareModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\TccModel.edmx.diagram">
-      <DependentUpon>TccModel.edmx</DependentUpon>
+    <Content Include="Models\SocialCareModel.edmx.diagram">
+      <DependentUpon>SocialCareModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-1.12.4.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.12.4.js" />
+    <Content Include="Scripts\jquery-1.12.4.min.js" />
+    <Content Include="Scripts\jquery-2.1.1.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -261,8 +299,7 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Formulario.cshtml" />
     <Content Include="Views\Home\SalvarResposta.cshtml" />
-    <Content Include="Views\Shared\Modal.cshtml" />
-    <Content Include="Views\Home\RegistrarVisita.cshtml" />
+    <Content Include="Views\Shared\_LoginLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

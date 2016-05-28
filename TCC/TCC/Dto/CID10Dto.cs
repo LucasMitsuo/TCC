@@ -12,10 +12,10 @@ namespace TCC.Dto
         public string descricao { get; set; }
 
 
-        public CID10Dto(CID10 cid10)
+        public CID10Dto(TAB_CID cid10)
         {
-            this.id = cid10.id;
-            this.descricao = cid10.codcid + " - " + cid10.descricao;
+            this.id = cid10.cod_cid;
+            this.descricao = cid10.cod_cid10 + " - " + cid10.des_cid;
         }
     }
 }

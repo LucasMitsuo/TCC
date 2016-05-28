@@ -12,16 +12,13 @@ namespace TCC.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Formulario
+    public partial class TAB_VISITA_PROC
     {
-        public Formulario()
-        {
-            this.FormCID10 = new HashSet<FormCID10>();
-        }
+        public int cod_vis_proc { get; set; }
+        public int cod_visita { get; set; }
+        public int cod_procedimento { get; set; }
     
-        public int id { get; set; }
-        public string nome { get; set; }
-    
-        public virtual ICollection<FormCID10> FormCID10 { get; set; }
+        public virtual TAB_PROCEDIMENTO TAB_PROCEDIMENTO { get; set; }
+        public virtual TAB_VISITA TAB_VISITA { get; set; }
     }
 }

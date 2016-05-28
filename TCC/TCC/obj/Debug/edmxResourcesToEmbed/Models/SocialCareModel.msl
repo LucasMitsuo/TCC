@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SocialCareModelStoreContainer" CdmEntityContainer="SocialCareEntities">
+    <EntitySetMapping Name="TAB__MATERIAL">
+      <EntityTypeMapping TypeName="SocialCareModel.TAB__MATERIAL">
+        <MappingFragment StoreEntitySet="TAB__MATERIAL">
+          <ScalarProperty Name="cod_material" ColumnName="cod_material" />
+          <ScalarProperty Name="nom_material" ColumnName="nom_material" />
+          <ScalarProperty Name="des_material" ColumnName="des_material" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAB_CID">
+      <EntityTypeMapping TypeName="SocialCareModel.TAB_CID">
+        <MappingFragment StoreEntitySet="TAB_CID">
+          <ScalarProperty Name="cod_cid" ColumnName="cod_cid" />
+          <ScalarProperty Name="cod_cid10" ColumnName="cod_cid10" />
+          <ScalarProperty Name="des_cid" ColumnName="des_cid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAB_DIAGNOSTICO">
+      <EntityTypeMapping TypeName="SocialCareModel.TAB_DIAGNOSTICO">
+        <MappingFragment StoreEntitySet="TAB_DIAGNOSTICO">
+          <ScalarProperty Name="cod_diagnostico" ColumnName="cod_diagnostico" />
+          <ScalarProperty Name="cod_form" ColumnName="cod_form" />
+          <ScalarProperty Name="cod_cid" ColumnName="cod_cid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAB_FORM">
+      <EntityTypeMapping TypeName="SocialCareModel.TAB_FORM">
+        <MappingFragment StoreEntitySet="TAB_FORM">
+          <ScalarProperty Name="cod_form" ColumnName="cod_form" />
+          <ScalarProperty Name="cod_paciente" ColumnName="cod_paciente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAB_FORM_MAT">
+      <EntityTypeMapping TypeName="SocialCareModel.TAB_FORM_MAT">
+        <MappingFragment StoreEntitySet="TAB_FORM_MAT">
+          <ScalarProperty Name="cod_form_mat" ColumnName="cod_form_mat" />
+          <ScalarProperty Name="cod_material" ColumnName="cod_material" />
+          <ScalarProperty Name="cod_form" ColumnName="cod_form" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAB_FORM_PROC_ENF">
+      <EntityTypeMapping TypeName="SocialCareModel.TAB_FORM_PROC_ENF">
+        <MappingFragment StoreEntitySet="TAB_FORM_PROC_ENF">
+          <ScalarProperty Name="cod_form_proc" ColumnName="cod_form_proc" />
+          <ScalarProperty Name="cod_form" ColumnName="cod_form" />
+          <ScalarProperty Name="cod_proc_enf" ColumnName="cod_proc_enf" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAB_PACIENTE">
+      <EntityTypeMapping TypeName="SocialCareModel.TAB_PACIENTE">
+        <MappingFragment StoreEntitySet="TAB_PACIENTE">
+          <ScalarProperty Name="cod_paciente" ColumnName="cod_paciente" />
+          <ScalarProperty Name="nom_paciente" ColumnName="nom_paciente" />
+          <ScalarProperty Name="dat_nasc" ColumnName="dat_nasc" />
+          <ScalarProperty Name="tel_paciente" ColumnName="tel_paciente" />
+          <ScalarProperty Name="des_sexo" ColumnName="des_sexo" />
+          <ScalarProperty Name="des_end" ColumnName="des_end" />
+          <ScalarProperty Name="num_end" ColumnName="num_end" />
+          <ScalarProperty Name="des_referencia_end" ColumnName="des_referencia_end" />
+          <ScalarProperty Name="Nom_cuidador" ColumnName="Nom_cuidador" />
+          <ScalarProperty Name="des_parentesco" ColumnName="des_parentesco" />
+          <ScalarProperty Name="num_grau_ce" ColumnName="num_grau_ce" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAB_PROC_ENF">
+      <EntityTypeMapping TypeName="SocialCareModel.TAB_PROC_ENF">
+        <MappingFragment StoreEntitySet="TAB_PROC_ENF">
+          <ScalarProperty Name="cod_proc_enf" ColumnName="cod_proc_enf" />
+          <ScalarProperty Name="nom_proc_enf" ColumnName="nom_proc_enf" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAB_PROCEDIMENTO">
+      <EntityTypeMapping TypeName="SocialCareModel.TAB_PROCEDIMENTO">
+        <MappingFragment StoreEntitySet="TAB_PROCEDIMENTO">
+          <ScalarProperty Name="cod_procedimento" ColumnName="cod_procedimento" />
+          <ScalarProperty Name="nom_procedimento" ColumnName="nom_procedimento" />
+          <ScalarProperty Name="obs_procedimento" ColumnName="obs_procedimento" />
+          <ScalarProperty Name="des_categoria" ColumnName="des_categoria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAB_PROFISSIONAL">
+      <EntityTypeMapping TypeName="SocialCareModel.TAB_PROFISSIONAL">
+        <MappingFragment StoreEntitySet="TAB_PROFISSIONAL">
+          <ScalarProperty Name="cod_profissional" ColumnName="cod_profissional" />
+          <ScalarProperty Name="nom_profissional" ColumnName="nom_profissional" />
+          <ScalarProperty Name="des_login" ColumnName="des_login" />
+          <ScalarProperty Name="des_senha" ColumnName="des_senha" />
+          <ScalarProperty Name="des_cargo" ColumnName="des_cargo" />
+          <ScalarProperty Name="num_rg" ColumnName="num_rg" />
+          <ScalarProperty Name="dat_nascimento" ColumnName="dat_nascimento" />
+          <ScalarProperty Name="des_email" ColumnName="des_email" />
+          <ScalarProperty Name="dat_admissao" ColumnName="dat_admissao" />
+          <ScalarProperty Name="dat_demissao" ColumnName="dat_demissao" />
+          <ScalarProperty Name="des_sexo" ColumnName="des_sexo" />
+          <ScalarProperty Name="num_end" ColumnName="num_end" />
+          <ScalarProperty Name="des_complemento_end" ColumnName="des_complemento_end" />
+          <ScalarProperty Name="des_referencia_end" ColumnName="des_referencia_end" />
+          <ScalarProperty Name="img_foto" ColumnName="img_foto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAB_SAIDA">
+      <EntityTypeMapping TypeName="SocialCareModel.TAB_SAIDA">
+        <MappingFragment StoreEntitySet="TAB_SAIDA">
+          <ScalarProperty Name="cod_saida" ColumnName="cod_saida" />
+          <ScalarProperty Name="dat_saida" ColumnName="dat_saida" />
+          <ScalarProperty Name="des_razao" ColumnName="des_razao" />
+          <ScalarProperty Name="des_obs" ColumnName="des_obs" />
+          <ScalarProperty Name="TAB_PACIENTE_cod_paciente" ColumnName="TAB_PACIENTE_cod_paciente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAB_UP">
+      <EntityTypeMapping TypeName="SocialCareModel.TAB_UP">
+        <MappingFragment StoreEntitySet="TAB_UP">
+          <ScalarProperty Name="cod_up" ColumnName="cod_up" />
+          <ScalarProperty Name="des_momento" ColumnName="des_momento" />
+          <ScalarProperty Name="des_estagio" ColumnName="des_estagio" />
+          <ScalarProperty Name="dat_up" ColumnName="dat_up" />
+          <ScalarProperty Name="TAB_PACIENTE_cod_paciente" ColumnName="TAB_PACIENTE_cod_paciente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAB_VISITA">
+      <EntityTypeMapping TypeName="SocialCareModel.TAB_VISITA">
+        <MappingFragment StoreEntitySet="TAB_VISITA">
+          <ScalarProperty Name="cod_visita" ColumnName="cod_visita" />
+          <ScalarProperty Name="cod_paciente" ColumnName="cod_paciente" />
+          <ScalarProperty Name="dat_visita" ColumnName="dat_visita" />
+          <ScalarProperty Name="des_status" ColumnName="des_status" />
+          <ScalarProperty Name="cod_profissional" ColumnName="cod_profissional" />
+          <ScalarProperty Name="des_periodicidade" ColumnName="des_periodicidade" />
+          <ScalarProperty Name="des_obs" ColumnName="des_obs" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAB_VISITA_PROC">
+      <EntityTypeMapping TypeName="SocialCareModel.TAB_VISITA_PROC">
+        <MappingFragment StoreEntitySet="TAB_VISITA_PROC">
+          <ScalarProperty Name="cod_vis_proc" ColumnName="cod_vis_proc" />
+          <ScalarProperty Name="cod_visita" ColumnName="cod_visita" />
+          <ScalarProperty Name="cod_procedimento" ColumnName="cod_procedimento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
